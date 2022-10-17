@@ -1,14 +1,17 @@
 module.exports = {
-  siteMetadata: {
-    title: `My Gatsby Site`,
-    siteUrl: `https://www.yourdomain.tld`
-  },
-  plugins: ["gatsby-transformer-remark", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+  plugins: [
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "projects",
+        path: `${__dirname}/src/projects/`,
+      },
     },
-    __key: "pages"
-  }]
-};
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-prismjs-copy-button", "gatsby-remark-prismjs"],
+      },
+    },
+  ],
+}
